@@ -1,6 +1,7 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <h1>{{ firstName }}</h1>
+  <h2>{{ num > 1 ? 'Learning Vue..' : 'Loading..' }}</h2>
+  <h3>{{ obj }}</h3>
 </template>
 
 <script>
@@ -11,6 +12,13 @@ export default {
   components: {
     HelloWorld,
   },
+  data: () => ({
+    firstName: 'Nik',
+    num: 2,
+    obj: {
+      age: 19
+    }
+  })
 };
 </script>
 
