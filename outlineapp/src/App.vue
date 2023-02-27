@@ -2,22 +2,27 @@
   <h1>{{ firstName }}</h1>
   <h2>{{ num > 1 ? 'Learning Vue..' : 'Loading..' }}</h2>
   <h3>{{ obj }}</h3>
+  <a v-bind:href="linkUrl">bind</a>
+  <a :href="linkUrl+ '/'+ someUrl">AA</a>
+  <a :[atrKey]="linkUrl+ '/'+ someUrl">AA</a>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+  // null
   },
   data: () => ({
     firstName: 'Nik',
     num: 2,
     obj: {
-      age: 19
-    }
+      age: 19,
+    },
+    linkUrl: 'https://google.com',
+    someUrl: 'https://google.com',
+    atrKey: 'href',
   })
 };
 </script>
