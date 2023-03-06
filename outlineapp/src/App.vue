@@ -1,7 +1,8 @@
 <template>
   <div class="app">
-    <h1>Hello {{ firstName }}{{ lastName }}</h1>
-    <input aria-label="text" type="text" @keyup.enter="setName"/>
+    <h1 :class="{'exampleClass': isActive}" :style="{'font-size': 12 + 'px' }">Hi there</h1>
+    <h1 :class="{'exampleClass': isActive}" :style="{'font-size': 12 + 'px' }">Hi there</h1>
+    <h1 :class="classObject">Hi there</h1>
   </div>
 </template>
 <script>
@@ -12,33 +13,18 @@ export default {
     // null
   },
   data: () => ({
-    colors: ['orange', 'yellow', 'black'],
-    product: {
-      brand: 'Apple',
-      model: 'Maxintoshi',
-      price: 'Free'
-    },
-    firstName: 'Nik',
-    num: 2,
+    activeClass: 'my-active-class',
+    isActive: 'true',
   }),
   computed: {
-    fullName() {
-      return `${this.firstName || 'Default'}`;
-    },
-    onLastNameUpdate(value) {
-      console.log(value);
-    },
-  },
-  watch: {
-    lastName: 'onLastNameUpdate'
-  },
-  // save any methods, which we want use in component
-  methods: {
-    setName(e) {
-      this.firstName = e.target.value;
+    classObject () {
+      return {
+        'exampleClass' : this.isActive,
+        'error' : !this.isActive
+      }
     }
   }
-};
+}
 </script>
 
 <style>
