@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <h1>{{ title }}</h1>
     <button @click="onClick">Send Event</button>
   </div>
 </template>
@@ -7,6 +8,22 @@
 <script>
 export default {
   name: 'HelloWorld',
+  props: {
+    title: {
+      type: String,
+      required: true,
+      default: 'Def title'
+    },
+    userCamelCase: {
+      type: Object,
+      required: true,
+      default: () => ({}), // important work with Object
+      validator(value) { // validate / check data props
+        console.log(value);
+        return value.name;
+      }
+    },
+  },
   data: () => ({
     counter: 0
   }),

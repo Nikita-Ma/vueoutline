@@ -1,7 +1,10 @@
 <template>
   <div class="app">
-    <h1 :class="classObject">Hi there</h1>
-    <HelloWorld v-on="onChangeCounter" @onChangeCounter="cutEvent"/>
+<!--    <HelloWorld :title="'value'" v-on="onChangeCounter" @onChangeCounter="cutEvent"/>-->
+    <HelloWorld :user-object="{name: 'Denis'}"
+                :title="'123'"
+                :qwe-qwe="{qq: 123}"
+                @onChangeCounter="cutEvent"/>
   </div>
 </template>
 <script>
@@ -17,6 +20,7 @@ export default {
   data: () => ({
     activeClass: 'my-active-class',
     isActive: 'true',
+    title: 'some title'
   }),
   methods: {
     cutEvent(value) {
