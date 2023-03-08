@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <h1 :class="classObject">Hi there</h1>
-    <HelloWorld v-on="onChangeCounter" @onChangeCounter="onChangeCounter"/>
+    <HelloWorld v-on="onChangeCounter" @onChangeCounter="cutEvent"/>
   </div>
 </template>
 <script>
@@ -19,8 +19,8 @@ export default {
     isActive: 'true',
   }),
   methods: {
-    onChangeCounter(value) {
-      console.log('In App Vue value', value);
+    cutEvent(value) {
+      console.log('Cust Event', value);
     }
   },
   computed: {
