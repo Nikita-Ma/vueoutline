@@ -1,12 +1,12 @@
 const app = Vue.createApp({
     data() {
         return {
-            i: 0
+            i: 'String'
         }
     },
 
     template: `
-    <b-child :a="i"></b-child>
+    <b-child :a="'i'"></b-child>
     `,
 
     mounted() {
@@ -19,12 +19,18 @@ const app = Vue.createApp({
 })
 
 app.component('b-child', {
-    props: ['a'],
+    props: {
+        a: {
+            type: [String],
+            default: "I'm string",
+            validator(value) {
+                console.log(this)
+                return true
+            }
+        }
+    },
     template: `
     This "a" prop {{a}}
-    `,
-    mounted() {
-        console.log(this.$root)
-    }
+    `
 })
 app.mount('#app')
